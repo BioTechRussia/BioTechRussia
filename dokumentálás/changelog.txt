@@ -1,5 +1,6 @@
 
 25.02.17.   - 
 
-25.02.15.   - új logó, 
+25.02.15.   - git szinkron
+            - új logó, 
             - Weblap: sütik elfogadása elkészült, navbarral haladtam, kosár elemek számának elmentése (növelése törlése)
