@@ -1,5 +1,5 @@
 
-25.02.17.   - 
+25.02.16.   - Weblap: új háttér, eltűntethető pólókreáló: bármilyen rgb szín, átmenet, logó, logó nagyítása, méret kiválasztása, kosárba rakás, minden mentve böngészőadatokba, reszponzív fő container benne egy teszt carousel
 
 25.02.15.   - git szinkron
             - új logó, 

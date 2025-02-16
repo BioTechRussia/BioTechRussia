@@ -1,3 +1,15 @@
+html,
+body {
+    overflow-x: hidden;
+    /* Megakadályozza a vízszintes görgetést */
+    background-color: rgb(220, 220, 220);
+}
+
+.hidden {
+    display: none;
+    /* Az elrejtett elemek eltűnnek */
+}
+
 .nav-link:hover {
     color: white;
 }
@@ -35,7 +47,7 @@ hr {
 
 h2.display-7 {
     color: rgb(220, 0, 0);
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: bold;
 }
 
@@ -68,11 +80,13 @@ h2.display-7 {
 }
 
 .cookieButton {
+    color: black;
     font-weight: bold;
     height: 60%;
 }
 
 .robot-check {
+    color: black;
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -95,11 +109,20 @@ h2.display-7 {
     cursor: pointer;
 }
 
+.leirasIframe {
+    height: 104%;
+    width: 100%;
+}
+
 @media screen and (max-width: 450px) {
 
     /* Példa egy elem stílusának megváltoztatására */
     .nav-link {
         font-size: medium;
+    }
+
+    .leirasIframe {
+        height: 300%;
         /* Betűméret csökkentése */
     }
 }
@@ -111,26 +134,288 @@ h2.display-7 {
         font-size: small;
         /* Betűméret csökkentése */
     }
+
+    .iframeDiv {
+        position: sticky;
+        bottom: 0;
+        right: 0;
+    }
 }
 
 .kuka {
     all: unset;
     height: 100%;
 }
-.kuka:hover{
+
+.kuka:hover {
     cursor: pointer;
 }
+
 .img-container {
-    position: relative; /* Ez lesz a hivatkozási alap az abszolút pozícionált elemeknek */
+    position: relative;
+    /* Ez lesz a hivatkozási alap az abszolút pozícionált elemeknek */
     display: inline-block;
-  }
-  
-  .img-container .number {
-    position: absolute; 
-    top: -16px;    /* A szám pozíciója a kép tetejétől */
-    right: -8px;  /* A szám pozíciója a kép jobb oldalától */
+}
+
+.img-container .number {
+    position: absolute;
+    top: -16px;
+    /* A szám pozíciója a kép tetejétől */
+    right: -8px;
+    /* A szám pozíciója a kép jobb oldalától */
     color: red;
     font-size: large;
     font-weight: bold;
     /* További stílusok, ha szükséges */
-  }
+}
+
+.main-container {
+    padding: 0px;
+    width: 100%;
+    margin: 0px;
+}
+
+.secondary-container {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 10%;
+}
+
+@media screen and (min-width: 1300px) {
+    .secondary-container {
+        border-left: rgb(220, 0, 0) 10px solid;
+    }
+
+    .hr {
+        width: 67%;
+    }
+
+    .iframeDiv {
+        position: relative;
+        padding-left: 20px;
+        /* Kis térköz, hogy a border ne fedje el a tartalmat */
+    }
+
+    .iframeDiv::before {
+        z-index: 100000;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: -1000px;
+        /* Felfelé nyújtás */
+        bottom: -500px;
+        /* Lefelé nyújtás */
+        width: 4px;
+        /* Border vastagsága */
+        background-color: #495057;
+        /* Border színe */
+    }
+}
+@media screen and (max-width: 1300px) {
+    .hr{
+        width: 100% !important; 
+    }
+}
+
+.carousel-item {
+    transition: transform 0.6s ease-in-out, filter 0.6s ease-in-out;
+}
+
+.carousel-item.active {
+    filter: blur(0px);
+}
+
+.carousel-item-next,
+.carousel-item-prev {
+    filter: blur(2px);
+}
+
+
+.button {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.poloButton:hover {
+    border: 2px solid white;
+    background-color: #4caf50;
+    color: white;
+}
+
+.poloButton {
+    transition: all 0.5s ease-in-out;
+    /* Ez biztosítja, hogy minden változás (pl. háttérszín, szöveg szín) simán történjen */
+}
+
+.activeButton {
+    background-color: #4caf50;
+    color: white;
+    border: 2px solid white;
+}
+
+
+.dropdown-color-picker {
+    background-color: white;
+    font-weight: bold;
+    color: black;
+}
+
+.color-picker {
+    all: unset;
+    display: inline;
+    margin-top: 4px;
+    width: 40%;
+    height: 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.color-picker:hover {
+    border: 1px solid black;
+}
+
+#colorType {
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#size {
+    display: inline;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.sizeValue {
+    background-color: white;
+    font-weight: bold;
+    color: black;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    /* Csak a kép méretét vegye fel */
+}
+.deleteButton{
+    position: absolute;
+    top: 0;
+    /* Állítsd be, milyen magasra kerüljön */
+    left: 8%;
+    transform: translateX(-50%);
+    /* Középre igazítás */
+}
+
+#open{
+    display: none;
+}
+
+.overlay-image {
+    display: none;
+    /* Kezdetben ne legyen látható */
+    position: absolute;
+    top: 20%;
+    /* Állítsd be, milyen magasra kerüljön */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Középre igazítás */
+    width: 30%;
+    /* Méret beállítása */
+}
+
+#logoCheckbox {
+    -webkit-appearance: none;
+    /* Eltávolítja a rendszer alapértelmezett stílusát */
+    -moz-appearance: none;
+    /* Firefox esetében */
+    appearance: none;
+    /* Az összes böngészőben */
+
+    width: 24px;
+    /* A checkbox szélessége */
+    height: 24px;
+    /* A checkbox magassága */
+    border: 2px solid #fff;
+    /* A checkbox szegélyének vastagsága */
+    border-radius: 5px;
+    /* Lekerekített sarkok */
+    position: relative;
+    top: 6px;
+    /* Szükséges a pipa elhelyezéséhez */
+    background-color: #fff;
+    /* Háttérszín */
+    cursor: pointer;
+    /* Mutatóujj kurzor a checkbox fölé húzva */
+    transition: all 0.4s ease-in-out;
+    /* Ez biztosítja, hogy minden változás (pl. háttérszín, szöveg szín) simán történjen */
+}
+
+/* Bepipáláskor a háttér és a szegély színének változása */
+#logoCheckbox:checked {
+    background-color: #4caf50;
+    /* A pipa színes háttere */
+    border-color: #4caf50;
+    /* A pipa szegélyének színe */
+}
+
+/* A pipa */
+#logoCheckbox:checked::after {
+    content: '';
+    /* A pipa karaktere */
+    position: absolute;
+    /* Pozicionáljuk */
+    left: 6px;
+    /* Pipa bal oldali eltolása */
+    top: 2px;
+    /* Pipa felső eltolása */
+    width: 10px;
+    /* A pipa szélessége */
+    height: 16px;
+    /* A pipa magassága */
+    border: solid white;
+    /* A pipa színe */
+    border-width: 0 4px 4px 0;
+    /* A pipa vonalának vastagsága */
+    transform: rotate(45deg);
+    /* A pipa forgatása */
+    transition: transform 1.5s ease;
+    /* Animáció a pipa megjelenéséhez */
+}
+
+.widthButton {
+    font-size: medium;
+    font-weight: 900;
+    display: inline;
+    width: 30%;
+    padding: 0px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+#increase {
+    background-color: #4caf50;
+}
+
+#decrease {
+    background-color: #f44336;
+}
+
+@media screen and (min-width: 450px) {
+    .secondary-container {
+        width: 33%;
+        position: fixed;
+        right: 0;
+        padding-bottom: 40%;
+    }
+
+}
